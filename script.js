@@ -67,6 +67,31 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape') closeLightbox();
   });
 
+  // ---- Contact form (static site: hands off to the visitor's mail client) ----
+  const contactForm = document.getElementById('contact-form');
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = contactForm.name.value.trim();
+      const phone = contactForm.phone.value.trim();
+      const email = contactForm.email.value.trim();
+      const message = contactForm.message.value.trim();
+
+      const bodyLines = [
+        `Name: ${name}`,
+        phone ? `Phone: ${phone}` : null,
+        `Email: ${email}`,
+        '',
+        message,
+      ].filter((line) => line !== null);
+
+      const subject = encodeURIComponent('Private Chef Inquiry');
+      const body = encodeURIComponent(bodyLines.join('\n'));
+      window.location.href = `mailto:chefmannybayarea@gmail.com?subject=${subject}&body=${body}`;
+    });
+  }
+
   // ---- Testimonial carousel ----
   const track = document.getElementById('testimonial-track');
   const dotsWrap = document.getElementById('carousel-dots');
