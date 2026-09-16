@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chef Manny | Private Chef, Bay Area</title>
+<meta name="description" content="Chef Manny is a private chef based in the San Francisco Bay Area, cooking seasonal food shaped by California, Puerto Rican, Cuban, and African American roots. Available for private dinners, events, and personalized menus.">
+
+<!-- ===================================================================
+     CONTENT GUIDE
+     Every place you need to swap in real content is marked like this:
+     [BRACKETED PLACEHOLDER TEXT] — replace the whole bracketed phrase.
+     "REPLACE PHOTO" comments mark where an img src needs a real file
+     dropped into the /images folder. See README.md for the full
+     swap-in checklist.
+
+     DESIGN: Navy & Gold direction, approved — Bodoni Moda (display) +
+     Inter (body), navy #1B2A4A / gold #B8924B / white, sharp corners
+     on frames/cards, rounded corners on buttons, Chef Manny's logo in
+     the nav and footer.
+==================================================================== -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="site-header">
+  <div class="nav-inner">
+    <a href="#top" class="brand">
+      <img src="images/logo.png" alt="Chef Manny logo" class="brand-mark">
+      <span>Chef Manny</span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#testimonial">Testimonial</a>
+      <a href="#contact" class="nav-cta">Get in Touch</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section id="top" class="hero">
+  <img src="images/hero.jpg" alt="Chef Manny preparing a dish in the kitchen" class="hero-img">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="eyebrow">Private Chef &middot; Bay Area</p>
+    <h1>Chef Manny</h1>
+    <p class="hero-tagline">Seasonal cooking rooted in California, Puerto Rico, Cuba, and beyond.</p>
+    <a href="#contact" class="btn btn-primary">Get in Touch</a>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about" class="section about">
+  <div class="section-inner about-grid">
+    <div class="about-photo">
+      <!-- REPLACE PHOTO: portrait of Chef Manny -->
+      <img src="images/chef-portrait.jpg" alt="Portrait of Chef Manny">
+    </div>
+    <div class="about-copy">
+      <p class="eyebrow">About</p>
+      <h2>&ldquo;A meal is about more than what's on the plate.&rdquo;</h2>
+      <p>
+        I'm Chef Manny, a private chef serving the San Francisco Bay Area. I cook
+        with what's fresh and in season &mdash; simple ingredients, vibrant flavors,
+        and lots of fresh herbs. I'm a California native with Puerto Rican, Cuban,
+        African American, and honorary Mexican roots, and those influences
+        naturally find their way into my cooking. I've never wanted to be confined
+        to one style of food; I cook across cultures, learn as I go, and love
+        putting my own spin on things.
+      </p>
+      <p>
+        Food has always been how I bring people together. My mother taught me
+        that from an early age, using food to introduce me to different cultures
+        and celebrate them. Before becoming a chef, I spent more than 15 years as
+        a server at some of the best restaurants in the Bay Area &mdash; learning how
+        to read a room, anticipate what people need, and notice the small details
+        that make a meal unforgettable. I bring those same instincts into the
+        kitchen today.
+      </p>
+      <p>
+        I've cooked for private clients, new mothers, families, and celebrations
+        of every kind, working around dietary needs so no one feels like an
+        afterthought. At the end of the day, I want people to feel cared for
+        &mdash; and glad I was there.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section id="services" class="section services">
+  <div class="section-inner">
+    <p class="eyebrow center">Services</p>
+    <h2 class="center">How We Can Work Together</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>In Home Elevated Dinners</h3>
+        <p>A private dining experience brought fully into your home, whether it is a quiet night in or a celebration worth marking. Every detail is handled, from a thoughtful menu to a polished presentation, so the evening feels like a restaurant of your own without ever leaving the house.</p>
+      </div>
+      <div class="service-card">
+        <h3>Weekly Meal Prep</h3>
+        <p>Consistently well made meals, prepared fresh and ready in your kitchen each week. Get your time back and eat well, without giving any thought to shopping, cooking, or cleanup.</p>
+      </div>
+      <div class="service-card">
+        <h3>Corporate Gatherings</h3>
+        <p>A private dinner for your team or clients that feels considered rather than catered. The kind of evening that leaves a lasting impression, hosted wherever you choose to gather.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section id="gallery" class="section gallery">
+  <div class="section-inner">
+    <p class="eyebrow center">Gallery</p>
+    <h2 class="center">A Taste of the Table</h2>
+    <div class="gallery-grid">
+      <!-- Add or remove .gallery-item-wrap blocks to change how many photos appear. -->
+      <div class="gallery-item-wrap">
+        <button class="gallery-item" data-full="images/gallery-1.jpg">
+          <img src="images/gallery-1.jpg" alt="Herb-roasted chicken with mixed greens and lemon">
+        </button>
+      </div>
+      <div class="gallery-item-wrap">
+        <button class="gallery-item" data-full="images/gallery-2.jpg">
+          <img src="images/gallery-2.jpg" alt="Family-style outdoor spread with roasted chicken, rice, and fresh fruit">
+        </button>
+      </div>
+      <div class="gallery-item-wrap">
+        <button class="gallery-item" data-full="images/gallery-3.jpg">
+          <img src="images/gallery-3.jpg" alt="Grilled bone-in ribeye and roasted chicken platter with citrus">
+        </button>
+      </div>
+      <div class="gallery-item-wrap">
+        <button class="gallery-item" data-full="images/gallery-4.jpg">
+          <img src="images/gallery-4.jpg" alt="Rice pilaf finished with toasted pine nuts">
+        </button>
+      </div>
+      <div class="gallery-item-wrap">
+        <button class="gallery-item" data-full="images/gallery-5.jpg">
+          <img src="images/gallery-5.jpg" alt="Wedge salad with blue cheese, bacon, and tomato">
+        </button>
+      </div>
+      <div class="gallery-item-wrap">
+        <button class="gallery-item" data-full="images/gallery-6.jpg">
+          <img src="images/gallery-6.jpg" alt="Meatballs in tomato sauce with shaved parmesan">
+        </button>
+      </div>
+      <div class="gallery-item-wrap">
+        <button class="gallery-item" data-full="images/gallery-7.jpg">
+          <img src="images/gallery-7.jpg" alt="Korean-style barbecue spread with banchan">
+        </button>
+      </div>
+      <div class="gallery-item-wrap">
+        <button class="gallery-item" data-full="images/gallery-8.jpg">
+          <img src="images/gallery-8.jpg" alt="Backyard dinner spread with seared duck, salad, and sides">
+        </button>
+      </div>
+      <div class="gallery-item-wrap">
+        <button class="gallery-item" data-full="images/gallery-9.jpg">
+          <img src="images/gallery-9.jpg" alt="Plated filet mignon with herb butter and pan sauce">
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section id="testimonial" class="section testimonial-section">
+  <div class="section-inner">
+    <p class="eyebrow center">Testimonials</p>
+    <h2 class="center">What Guests Say</h2>
+    <div class="testimonial-carousel">
+      <button class="carousel-arrow carousel-prev" aria-label="Previous testimonial">&#8249;</button>
+      <div class="testimonial-track" id="testimonial-track">
+        <blockquote class="testimonial-slide">
+          <p>&ldquo;Chef Manny brings so much heart to the food that he prepares for our family. He always has a positive attitude and is a pleasure to collaborate with on menu planning and ingredient management. He is thoughtful about preventing food waste. Most importantly: his food is delicious!! Thank you, Manny!&rdquo;</p>
+          <cite>Melanie B.</cite>
+        </blockquote>
+        <blockquote class="testimonial-slide">
+          <p>&ldquo;Chef Manny exceeded every expectation. Hosting a live dinner for 24 guests in our backyard is no small feat, yet he made the entire experience feel effortless.&rdquo;</p>
+          <cite>Michelle P.</cite>
+        </blockquote>
+        <blockquote class="testimonial-slide">
+          <p>&ldquo;Beyond the incredible food, Chef Manny brought a warm, confident presence that elevated the entire experience. We received countless compliments from our guests and couldn't have been happier.&rdquo;</p>
+          <cite>Sarana D.</cite>
+        </blockquote>
+        <blockquote class="testimonial-slide">
+          <p>&ldquo;His talent and creativity shine through in every dish. The crimini mushrooms were the unanimous crowd favorite, and the mesquite-grilled bone-in ribeye was simply unforgettable&mdash;perfectly cooked and so tender it practically melted in your mouth.&rdquo;</p>
+          <cite>Eve E.</cite>
+        </blockquote>
+        <blockquote class="testimonial-slide">
+          <p>&ldquo;He arrived early in the morning to prep everything at the house, and made everything from scratch, and as guests started arriving, the whole place smelled amazing from the fresh herbs he was using for the dishes.&rdquo;</p>
+          <cite>Farshid G.</cite>
+        </blockquote>
+        <blockquote class="testimonial-slide">
+          <p>&ldquo;I also appreciated how he engaged with guests while cooking. People would stop by the kitchen, chat with him, ask questions, and taste some of the food along the way. It made everyone feel included in the experience rather than simply waiting for the meal to be served.&rdquo;</p>
+          <cite>Belinda G.</cite>
+        </blockquote>
+        <blockquote class="testimonial-slide">
+          <p>&ldquo;I also appreciated how he engaged with guests while cooking. People would stop by the kitchen, chat with him, ask questions, and taste some of the food along the way. It made everyone feel included in the experience rather than simply waiting for the meal to be served.&rdquo;</p>
+          <cite>Gidge B.</cite>
+        </blockquote>
+        <blockquote class="testimonial-slide">
+          <p>&ldquo;We asked for informal, family style and discussed some of the wines we were pouring and he ran with a menu that worked very well. Everyone was impressed!&rdquo;</p>
+          <cite>Jared P.</cite>
+        </blockquote>
+        <blockquote class="testimonial-slide">
+          <p>&ldquo;We hired Chef Manny to help us with some meal prep during my last weeks of work and pregnancy with a toddler. He is phenomenal!&rdquo;</p>
+          <cite>Nahal G.</cite>
+        </blockquote>
+        <blockquote class="testimonial-slide">
+          <p>&ldquo;Chef Manny was a great fit for our family's meal prep needs. He took straightforward dishes and enhanced their flavors with fresh herbs and spices. I knew working with him was a success when my younger children, who are typically picky eaters, walked into the house and immediately asked if they could have whatever smelled so good.&rdquo;</p>
+          <cite>Felicia M.</cite>
+        </blockquote>
+      </div>
+      <button class="carousel-arrow carousel-next" aria-label="Next testimonial">&#8250;</button>
+    </div>
+    <div class="carousel-dots" id="carousel-dots"></div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="section contact">
+  <div class="section-inner contact-grid">
+    <div>
+      <p class="eyebrow">Contact</p>
+      <h2>Let's Plan Something Delicious</h2>
+      <p class="contact-intro">[One or two sentences inviting people to reach out — mention lead time needed, service area, or what info is helpful to include in a first message.]</p>
+      <ul class="contact-list">
+        <li><span>Email</span><a href="mailto:hello@example.com">hello@example.com</a></li>
+        <li><span>Phone</span><a href="tel:+15555555555">(555) 555-5555</a></li>
+        <li><span>Instagram</span><a href="https://instagram.com/example" target="_blank" rel="noopener">@example</a></li>
+        <li><span>Service Area</span><span>Bay Area</span></li>
+      </ul>
+    </div>
+    <div class="contact-cta-box">
+      <p>Ready to get started?</p>
+      <a href="mailto:hello@example.com?subject=Private%20Chef%20Inquiry" class="btn btn-primary btn-wide">Email Manny</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <img src="images/logo.png" alt="Chef Manny logo" class="footer-logo">
+  <p>&copy; <span id="year"></span> Chef Manny. All rights reserved.</p>
+</footer>
+
+<!-- ============ LIGHTBOX (used by script.js) ============ -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox-close" aria-label="Close">&times;</button>
+  <img src="" alt="" id="lightbox-img">
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
