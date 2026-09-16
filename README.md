@@ -111,7 +111,37 @@ expect $12–20/year. In the Vercel project, go to Settings → Domains,
 add it, and follow the DNS instructions there; it's a DNS change that
 usually takes under an hour to propagate.
 
-## 6. Making future edits
+## 6. SEO
+
+The technical/on-page SEO foundation is already built in:
+- Structured data (JSON-LD `LocalBusiness` + founder `Person`) in
+  `index.html`'s `<head>`, so Google can understand this as a local
+  personal-chef business
+- Open Graph + Twitter Card meta tags, so links look right when shared
+  on social/messaging apps
+- `robots.txt` and `sitemap.xml` at the project root
+- A canonical URL tag
+- A simple on-brand favicon (`images/favicon.svg`)
+
+**Once you have a real domain**, search `index.html`, `robots.txt`, and
+`sitemap.xml` for `[YOUR SITE URL` and replace every instance with the
+actual domain (e.g. `https://chefmannybayarea.com`) — everything above
+is wired up but inert until that placeholder is swapped in.
+
+**What's intentionally not automated** — these are ongoing, manual,
+off-site tasks that no amount of code replaces:
+- **Google Business Profile**: create/verify one at
+  [business.google.com](https://business.google.com) — this is the
+  single highest-leverage thing for a local service business to show
+  up in Google Maps and local search results. Needs Manny's own Google
+  account and phone/mail verification.
+- **Google Search Console + Analytics**: connect the domain once it
+  exists, to track what's actually showing up in search and getting
+  clicked.
+- **Reviews**: monitoring and responding to Google/Yelp reviews is a
+  recurring human task, not a website feature.
+
+## 7. Making future edits
 
 For a text or photo swap: open `index.html` (or `styles.css`) in any
 text editor, find the line, change it, save, then commit and push as

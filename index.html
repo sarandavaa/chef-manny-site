@@ -4,9 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chef Manny | Private Chef, Bay Area</title>
+  <title>Chef Manny | Private Chef &amp; Personal Chef, Bay Area</title>
   <meta name="description"
-    content="Chef Manny is a private chef based in the San Francisco Bay Area, cooking seasonal food shaped by California, Puerto Rican, Cuban, and African American roots. Available for private dinners, events, and personalized menus.">
+    content="Chef Manny is a private chef and personal chef based in the San Francisco Bay Area, cooking seasonal food shaped by California, Puerto Rican, Cuban, and African American roots. Available for private dinners, events, and personalized menus.">
+  <link rel="canonical" href="[YOUR SITE URL — e.g. https://chefmannybayarea.com]/">
 
   <!-- ===================================================================
      CONTENT GUIDE
@@ -16,10 +17,54 @@
      dropped into the /images folder. See README.md for the full
      swap-in checklist.
 
+     SEO: once this site has a real domain, search this file for
+     "[YOUR SITE URL" and replace every instance (canonical link, Open
+     Graph/Twitter tags, and the JSON-LD block below) — also update
+     robots.txt and sitemap.xml at the project root the same way.
+
      DESIGN: Apple-inspired direction — black / off-white / grey with an
      orange accent, Sora (Google Fonts) throughout, soft rounded corners,
      generous whitespace, no logo mark (wordmark only).
 ==================================================================== -->
+
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+
+  <!-- Social share previews (Facebook/iMessage/Slack use Open Graph, X uses these plus its own tags) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Chef Manny">
+  <meta property="og:title" content="Chef Manny | Private Chef & Personal Chef, Bay Area">
+  <meta property="og:description"
+    content="Private chef and personal chef in the San Francisco Bay Area, cooking seasonal food shaped by California, Puerto Rican, Cuban, and African American roots.">
+  <meta property="og:url" content="[YOUR SITE URL — e.g. https://chefmannybayarea.com]/">
+  <meta property="og:image" content="[YOUR SITE URL — e.g. https://chefmannybayarea.com]/images/hero.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Chef Manny | Private Chef & Personal Chef, Bay Area">
+  <meta name="twitter:description"
+    content="Private chef and personal chef in the San Francisco Bay Area, cooking seasonal food shaped by California, Puerto Rican, Cuban, and African American roots.">
+  <meta name="twitter:image" content="[YOUR SITE URL — e.g. https://chefmannybayarea.com]/images/hero.png">
+
+  <!-- Structured data: helps Google understand this as a local personal-chef business -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Chef Manny",
+    "description": "Private chef and personal chef based in the San Francisco Bay Area, cooking seasonal food shaped by California, Puerto Rican, Cuban, and African American roots.",
+    "url": "[YOUR SITE URL — e.g. https://chefmannybayarea.com]/",
+    "image": "[YOUR SITE URL — e.g. https://chefmannybayarea.com]/images/hero.png",
+    "email": "chefmannybayarea@gmail.com",
+    "areaServed": {
+      "@type": "AdministrativeArea",
+      "name": "San Francisco Bay Area, California"
+    },
+    "sameAs": ["https://www.instagram.com/chefmannybayarea"],
+    "founder": {
+      "@type": "Person",
+      "name": "Manny",
+      "jobTitle": "Private Chef"
+    }
+  }
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
