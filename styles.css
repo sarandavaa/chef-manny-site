@@ -20,6 +20,7 @@
   --radius: 18px;
   --radius-lg: 24px;
   --radius-pill: 980px;
+  --hero-nav-offset: 72px; /* clears the fixed nav so it never sits over the subject's head */
 }
 
 /* =====================================================================
@@ -73,9 +74,12 @@ h2.center { text-align: center; max-width: 40rem; margin-left: auto; margin-righ
 .btn {
   display: inline-block;
   padding: 0.85rem 1.75rem;
+  border: none;
   border-radius: var(--radius-pill);
+  font-family: inherit;
   font-weight: 500;
   font-size: 1rem;
+  cursor: pointer;
   transition: background-color 0.15s ease, opacity 0.15s ease;
 }
 .btn-primary {
@@ -83,7 +87,6 @@ h2.center { text-align: center; max-width: 40rem; margin-left: auto; margin-righ
   color: #fff;
 }
 .btn-primary:hover { background: var(--color-accent-hover); }
-.btn-wide { width: 100%; text-align: center; }
 
 /* =====================================================================
    HEADER / NAV
@@ -121,10 +124,10 @@ h2.center { text-align: center; max-width: 40rem; margin-left: auto; margin-righ
 }
 .nav-links a {
   font-size: 0.9rem;
-  font-weight: 400;
-  color: var(--color-body);
+  font-weight: 500;
+  color: var(--color-text);
 }
-.nav-links a:hover { color: var(--color-text); }
+.nav-links a:hover { color: var(--color-accent); }
 .nav-links a.nav-cta {
   background: var(--color-accent);
   color: #fff;
@@ -155,14 +158,19 @@ h2.center { text-align: center; max-width: 40rem; margin-left: auto; margin-righ
    ===================================================================== */
 .hero {
   position: relative;
-  aspect-ratio: 1766 / 1214; /* matches hero.png so the full photo always shows, uncropped */
-  min-height: 560px;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
+  /* height = nav-clearing buffer + the image's own aspect ratio (1214/1766) applied to full viewport width */
+  height: calc(var(--hero-nav-offset) + 68.7429vw);
+  background: var(--color-text);
   color: #fff;
-  overflow: hidden;
   text-align: center;
+}
+.hero-media {
+  position: absolute;
+  top: var(--hero-nav-offset);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
 }
 .hero-img {
   position: absolute;
@@ -379,6 +387,7 @@ h2.center { text-align: center; max-width: 40rem; margin-left: auto; margin-righ
   flex-direction: column;
   gap: 1.25rem;
 }
+.contact-form button[type="submit"] { align-self: flex-start; }
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -395,7 +404,8 @@ h2.center { text-align: center; max-width: 40rem; margin-left: auto; margin-righ
   color: var(--color-text-soft);
 }
 .form-field input,
-.form-field textarea {
+.form-field textarea,
+.form-field select {
   font-family: var(--font-body);
   font-size: 0.95rem;
   color: var(--color-text);
@@ -406,13 +416,31 @@ h2.center { text-align: center; max-width: 40rem; margin-left: auto; margin-righ
   transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
 }
 .form-field textarea { resize: vertical; min-height: 110px; }
+.form-field select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%2386868B' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+.form-field select:invalid { color: var(--color-text-soft); }
 .form-field input:focus,
-.form-field textarea:focus {
+.form-field textarea:focus,
+.form-field select:focus {
   outline: none;
-  background: #fff;
+  background-color: #fff;
   border-color: var(--color-accent);
   box-shadow: 0 0 0 3px rgba(243, 89, 3, 0.15);
 }
+.form-field.is-hidden { display: none; }
+
+.form-status {
+  font-size: 0.9rem;
+  color: var(--color-text-soft);
+  min-height: 1.2em;
+}
+.form-status.is-error { color: var(--color-accent); }
 
 /* =====================================================================
    FOOTER
@@ -475,7 +503,7 @@ h2.center { text-align: center; max-width: 40rem; margin-left: auto; margin-righ
 }
 
 @media (max-width: 700px) {
-  .hero { aspect-ratio: auto; height: 100svh; }
+  .hero { height: 100svh; min-height: 480px; }
   .hero-img { object-position: 30% top; }
   .nav-toggle { display: flex; }
   .nav-links {

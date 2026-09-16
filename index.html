@@ -51,8 +51,10 @@
 
   <!-- ============ HERO ============ -->
   <section id="top" class="hero">
-    <img src="images/hero.png" alt="Chef Manny preparing a dish in the kitchen" class="hero-img">
-    <div class="hero-overlay"></div>
+    <div class="hero-media">
+      <img src="images/hero.png" alt="Chef Manny preparing a dish in the kitchen" class="hero-img">
+      <div class="hero-overlay"></div>
+    </div>
     <div class="hero-content">
       <p class="eyebrow">Private Chef &middot; Bay Area</p>
       <h1>Chef Manny</h1>
@@ -133,19 +135,14 @@
       <div class="gallery-grid">
         <!-- Add or remove .gallery-item-wrap blocks to change how many photos appear. -->
         <div class="gallery-item-wrap">
-          <button class="gallery-item" data-full="images/gallery-1.jpg">
-            <img src="images/gallery-1.jpg" alt="Herb-roasted chicken with mixed greens and lemon">
+          <button class="gallery-item" data-full="images/gallery-9.jpg">
+            <img src="images/gallery-9.jpg" alt="Plated filet mignon with herb butter and pan sauce">
           </button>
         </div>
         <div class="gallery-item-wrap">
           <button class="gallery-item" data-full="images/gallery-2.jpg">
             <img src="images/gallery-2.jpg"
               alt="Family-style outdoor spread with roasted chicken, rice, and fresh fruit">
-          </button>
-        </div>
-        <div class="gallery-item-wrap">
-          <button class="gallery-item" data-full="images/gallery-3.jpg">
-            <img src="images/gallery-3.jpg" alt="Grilled bone-in ribeye and roasted chicken platter with citrus">
           </button>
         </div>
         <div class="gallery-item-wrap">
@@ -164,18 +161,23 @@
           </button>
         </div>
         <div class="gallery-item-wrap">
-          <button class="gallery-item" data-full="images/gallery-7.jpg">
-            <img src="images/gallery-7.jpg" alt="Korean-style barbecue spread with banchan">
-          </button>
-        </div>
-        <div class="gallery-item-wrap">
           <button class="gallery-item" data-full="images/gallery-8.jpg">
             <img src="images/gallery-8.jpg" alt="Backyard dinner spread with seared duck, salad, and sides">
           </button>
         </div>
         <div class="gallery-item-wrap">
-          <button class="gallery-item" data-full="images/gallery-9.jpg">
-            <img src="images/gallery-9.jpg" alt="Plated filet mignon with herb butter and pan sauce">
+          <button class="gallery-item" data-full="images/gallery-1.jpg">
+            <img src="images/gallery-1.jpg" alt="Herb-roasted chicken with mixed greens and lemon">
+          </button>
+        </div>
+        <div class="gallery-item-wrap">
+          <button class="gallery-item" data-full="images/gallery-3.jpg">
+            <img src="images/gallery-3.jpg" alt="Grilled bone-in ribeye and roasted chicken platter with citrus">
+          </button>
+        </div>
+        <div class="gallery-item-wrap">
+          <button class="gallery-item" data-full="images/gallery-7.jpg">
+            <img src="images/gallery-7.jpg" alt="Korean-style barbecue spread with banchan">
           </button>
         </div>
       </div>
@@ -264,29 +266,96 @@
         <p class="contact-intro">[One or two sentences inviting people to reach out — mention lead time needed, service
           area, or what info is helpful to include in a first message.]</p>
         <ul class="contact-list">
-          <li><span>Phone</span><a href="tel:+15555555555">(555) 555-5555</a></li>
+          <li><span>Email</span><a href="mailto:chefmannybayarea@gmail.com">chefmannybayarea@gmail.com</a></li>
           <li><span>Instagram</span><a href="https://instagram.com/example" target="_blank" rel="noopener">@example</a>
           </li>
         </ul>
       </div>
-      <form class="contact-form" id="contact-form">
+      <form class="contact-form" id="contact-form" action="https://formspree.io/f/mqpakayw" method="POST">
+        <div class="form-row">
+          <div class="form-field">
+            <label for="first-name">First Name *</label>
+            <input type="text" id="first-name" name="First Name" autocomplete="given-name" required>
+          </div>
+          <div class="form-field">
+            <label for="last-name">Last Name *</label>
+            <input type="text" id="last-name" name="Last Name" autocomplete="family-name" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" autocomplete="email" required>
+          </div>
+          <div class="form-field">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="Phone Number" autocomplete="tel">
+          </div>
+        </div>
+
         <div class="form-field">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" autocomplete="name" required>
+          <label for="service">Service Interested In *</label>
+          <select id="service" name="Service Interested In" required>
+            <option value="" disabled selected>Select a service</option>
+            <option>In Home Elevated Dinners</option>
+            <option>Weekly Meal Prep</option>
+            <option>Corporate Gatherings</option>
+            <option>Vacation and Rental Chef Services</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-field is-hidden" id="service-other-wrap">
+          <label for="service-other">Please specify</label>
+          <input type="text" id="service-other" name="Service Interested In (Other)">
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="event-date">Event Date *</label>
+            <input type="date" id="event-date" name="Event Date" required>
+          </div>
+          <div class="form-field">
+            <label for="event-time">Event Time *</label>
+            <input type="time" id="event-time" name="Event Time" required>
+          </div>
         </div>
         <div class="form-field">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" autocomplete="email" required>
+          <label for="guests">Number of Guests *</label>
+          <input type="number" id="guests" name="Number of Guests" min="1" required>
+        </div>
+
+        <div class="form-field">
+          <label for="occasion">Occasion</label>
+          <select id="occasion" name="Occasion">
+            <option value="" disabled selected>Select an occasion (optional)</option>
+            <option>Birthday</option>
+            <option>Anniversary</option>
+            <option>Holiday</option>
+            <option>Corporate Event</option>
+            <option>Ongoing Meal Prep</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-field is-hidden" id="occasion-other-wrap">
+          <label for="occasion-other">Please specify</label>
+          <input type="text" id="occasion-other" name="Occasion (Other)">
+        </div>
+
+        <div class="form-field">
+          <label for="dietary">Dietary Restrictions and Allergies</label>
+          <textarea id="dietary" name="Dietary Restrictions and Allergies" rows="2"></textarea>
         </div>
         <div class="form-field">
-          <label for="phone">Phone</label>
-          <input type="tel" id="phone" name="phone" autocomplete="tel">
+          <label for="referral">How Did You Hear About Chef Manny</label>
+          <input type="text" id="referral" name="How Did You Hear About Chef Manny">
         </div>
         <div class="form-field">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="4" required></textarea>
+          <label for="details">Additional Details</label>
+          <textarea id="details" name="Additional Details" rows="4"></textarea>
         </div>
-        <button type="submit" class="btn btn-primary btn-wide">Send Message</button>
+
+        <button type="submit" class="btn btn-primary">Send Message</button>
+        <p class="form-status" id="form-status" role="status"></p>
       </form>
     </div>
   </section>

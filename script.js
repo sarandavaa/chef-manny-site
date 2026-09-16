@@ -8,6 +8,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+  // ---- Hero nav-clearance offset (measured, not guessed, so the hero
+  // photo always starts exactly at the nav's real bottom edge with no gap) ----
+  const header = document.querySelector('.site-header');
+  const syncHeroNavOffset = () => {
+    if (!header) return;
+    document.documentElement.style.setProperty('--hero-nav-offset', `${header.offsetHeight}px`);
+  };
+  syncHeroNavOffset();
+  window.addEventListener('resize', syncHeroNavOffset);
+
   // ---- Mobile nav toggle ----
   const navToggle = document.querySelector('.nav-toggle');
   const navLinks = document.querySelector('.nav-links');
@@ -67,28 +77,67 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape') closeLightbox();
   });
 
-  // ---- Contact form (static site: hands off to the visitor's mail client) ----
+  // ---- Contact form (submits to Formspree — see the form's `action` in index.html) ----
   const contactForm = document.getElementById('contact-form');
+  const formStatus = document.getElementById('form-status');
 
-  if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+  // Reveal a "please specify" field when its paired <select> is set to "Other".
+  const wireOtherToggle = (selectId, wrapId, inputId) => {
+    const select = document.getElementById(selectId);
+    const wrap = document.getElementById(wrapId);
+    const input = document.getElementById(inputId);
+    if (!select || !wrap || !input) return;
+
+    select.addEventListener('change', () => {
+      const isOther = select.value === 'Other';
+      wrap.classList.toggle('is-hidden', !isOther);
+      input.required = isOther;
+      if (!isOther) input.value = '';
+    });
+  };
+
+  wireOtherToggle('service', 'service-other-wrap', 'service-other');
+  wireOtherToggle('occasion', 'occasion-other-wrap', 'occasion-other');
+
+  if (contactForm && formStatus) {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const name = contactForm.name.value.trim();
-      const phone = contactForm.phone.value.trim();
-      const email = contactForm.email.value.trim();
-      const message = contactForm.message.value.trim();
 
-      const bodyLines = [
-        `Name: ${name}`,
-        phone ? `Phone: ${phone}` : null,
-        `Email: ${email}`,
-        '',
-        message,
-      ].filter((line) => line !== null);
+      const action = contactForm.getAttribute('action') || '';
+      if (!action.startsWith('http')) {
+        formStatus.textContent = 'This form isn’t connected to an email service yet.';
+        formStatus.classList.add('is-error');
+        return;
+      }
 
-      const subject = encodeURIComponent('Private Chef Inquiry');
-      const body = encodeURIComponent(bodyLines.join('\n'));
-      window.location.href = `mailto:chefmannybayarea@gmail.com?subject=${subject}&body=${body}`;
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      formStatus.textContent = 'Sending…';
+      formStatus.classList.remove('is-error');
+
+      try {
+        const response = await fetch(action, {
+          method: 'POST',
+          body: new FormData(contactForm),
+          headers: { Accept: 'application/json' },
+        });
+
+        if (response.ok) {
+          formStatus.textContent = 'Thanks! Your message has been sent — Manny will be in touch soon.';
+          contactForm.reset();
+          document.querySelectorAll('.form-field.is-hidden').forEach((wrap) => {
+            wrap.classList.add('is-hidden');
+          });
+        } else {
+          formStatus.textContent = 'Something went wrong sending your message. Please try again or email directly.';
+          formStatus.classList.add('is-error');
+        }
+      } catch (err) {
+        formStatus.textContent = 'Something went wrong sending your message. Please try again or email directly.';
+        formStatus.classList.add('is-error');
+      } finally {
+        submitBtn.disabled = false;
+      }
     });
   }
 

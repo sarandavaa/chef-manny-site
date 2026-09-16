@@ -1,18 +1,31 @@
 # Chef Manny — Private Chef Website
 
-A single-page, static site. No build tools, no framework, no backend —
-just `index.html`, `styles.css`, and `script.js`. Opens directly in a
-browser and deploys anywhere that serves static files.
+A single-page, static site. No build tools, no framework, no backend
+of its own — just `index.html`, `styles.css`, and `script.js`. The
+contact form submits to [Formspree](https://formspree.io) (see below);
+everything else runs entirely in the browser.
+
+**Live repo:** https://github.com/sarandavaa/chef-manny-site — deployed on
+Vercel, auto-redeploying on every push to `master`.
 
 ## Design
 
-Navy & Gold direction, approved: Bodoni Moda (display) + Inter (body),
-deep navy `#1B2A4A`, gold accent `#B8924B`, sharp corners on cards and
-photo frames, rounded corners on buttons, testimonials in a carousel.
-All theme colors and fonts live in one config block at the top of
-`styles.css` — change them there and the whole site updates. Chef
-Manny's logo (`images/logo.png`) is already in place in the nav and
-footer.
+Apple-inspired direction: black / off-white / grey with a single orange
+accent, [Sora](https://fonts.google.com/specimen/Sora) (Google Fonts)
+for all type, soft rounded corners throughout, generous whitespace, no
+logo mark (wordmark only). All theme colors, fonts, and corner radii
+live in one config block at the top of `styles.css` — change them
+there and the whole site updates:
+
+```css
+--color-accent: #F35903;   /* orange — buttons, links, emphasis */
+--font-display: "Sora", ...;
+--font-body:    "Sora", ...;
+```
+
+`images/logo.png` is no longer used anywhere in the site (the current
+design uses a text wordmark instead) — safe to delete, or keep around
+if you want a mark for a favicon or social share image later.
 
 ## 1. Swap in real content
 
@@ -29,15 +42,36 @@ Content to gather:
 - Testimonial quotes with names/initials (shown as a carousel — add or
   remove `.testimonial-slide` blocks inside `#testimonial-track`; the
   dots and arrows update automatically, no JS changes needed)
-- Contact email, phone, Instagram handle, service area
+- Contact phone and Instagram handle (shown in the left column of the
+  contact section)
 - Photos (see below)
+
+**Contact form setup:** the form posts to a
+[Formspree](https://formspree.io) endpoint already wired into the
+`action` attribute. If you ever need to point it at a different
+Formspree form (new account, new project), create a form there and
+swap in the new endpoint (`https://formspree.io/f/xxxxxxxx`). Without
+a valid endpoint, submitting the form shows a friendly inline error
+instead of sending anything. Formspree's free tier covers 50
+submissions/month; emails arrive with the visitor's address set as
+reply-to, so you can respond directly.
+
+The form collects: first/last name, email, phone, service interested
+in, event date/time, number of guests, occasion, dietary restrictions,
+how they heard about Chef Manny, and additional details. The two
+dropdowns (Service, Occasion) reveal a "please specify" box when
+"Other" is selected — that's handled in `script.js`, no extra setup
+needed.
 
 ## 2. Add photos
 
 Drop image files into the `images/` folder using these exact names, or
 update the `src` in `index.html` to match whatever you name them:
 
-- `hero.jpg` — wide hero shot (aim for at least 1600px wide)
+- `hero.png` — wide hero shot (the hero section sizes itself to this
+  image's aspect ratio so it's never cropped — if you swap in a photo
+  with a very different aspect ratio, check the hero still looks right
+  on both a wide desktop window and a phone)
 - `chef-portrait.jpg` — portrait for the About section
 - `gallery-1.jpg` through `gallery-9.jpg` — food/event photos for the
   gallery grid (square-ish crops work best; add or remove
@@ -52,34 +86,34 @@ fast on mobile.
 Just double-click `index.html` to open it in a browser. To see it the
 way a phone would, resize your browser window narrower, or use your
 browser's device-toolbar/responsive mode (usually under
-DevTools → Toggle device toolbar).
+DevTools → Toggle device toolbar). The contact form's fetch/JSON
+submission works fine when opened directly from disk, so no local
+server is required to test it.
 
-## 4. Deploy (Netlify — free, no account needed to start)
+## 4. Deploy
 
-1. Go to [app.netlify.com/drop](https://app.netlify.com/drop)
-2. Drag the whole `chef-site` folder onto the page
-3. Netlify gives you a live URL immediately (something like
-   `random-name-123.netlify.app`)
-4. Create a free Netlify account to keep the site permanently and
-   enable custom domains (Site settings → Domain management → Add a
-   domain)
+The site is already deployed on [Vercel](https://vercel.com), imported
+from the `chef-manny-site` GitHub repo. To ship a change:
 
-If you'd rather use git-based deploys (so pushing to GitHub
-auto-updates the live site), connect the folder as a GitHub repo and
-link it from Netlify's "Import from Git" flow instead — not necessary
-for a mostly-static site with infrequent updates, but nice if you'll
-be the one making the edits going forward.
+```
+git add -A
+git commit -m "describe the change"
+git push
+```
+
+Vercel picks up the push and redeploys automatically — no build step
+to configure, since this is plain static HTML/CSS/JS.
 
 ## 5. Custom domain
 
-Buy a domain (Namecheap, Google Domains successor Squarespace
-Domains, or directly through Netlify) — expect $12–20/year. Point it
-at Netlify by following their domain instructions; it's a DNS change
-that usually takes under an hour to propagate.
+Buy a domain (Namecheap, Cloudflare, or directly through Vercel) —
+expect $12–20/year. In the Vercel project, go to Settings → Domains,
+add it, and follow the DNS instructions there; it's a DNS change that
+usually takes under an hour to propagate.
 
 ## 6. Making future edits
 
-For a text or photo swap: open `index.html` in any text editor
-(TextEdit, VS Code, even Notes), find the line, change it, save. If
-the site is deployed via Netlify's drag-and-drop, re-drag the updated
-folder to redeploy. If deployed via git, commit and push.
+For a text or photo swap: open `index.html` (or `styles.css`) in any
+text editor, find the line, change it, save, then commit and push as
+above. For anything more involved, come back here with Claude Code —
+it already has the full history of how this site was built.
