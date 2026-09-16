@@ -113,31 +113,36 @@ usually takes under an hour to propagate.
 
 ## 6. SEO
 
-The technical/on-page SEO foundation is already built in:
+The technical/on-page SEO foundation is live at
+`https://www.chefmannybayarea.com`:
 - Structured data (JSON-LD `LocalBusiness` + founder `Person`) in
   `index.html`'s `<head>`, so Google can understand this as a local
   personal-chef business
 - Open Graph + Twitter Card meta tags, so links look right when shared
   on social/messaging apps
-- `robots.txt` and `sitemap.xml` at the project root
+- `robots.txt` and `sitemap.xml` at the project root, pointing at the
+  live domain
 - A canonical URL tag
 - A simple on-brand favicon (`images/favicon.svg`)
+- Vercel Web Analytics script tag (needs the Analytics toggle turned on
+  once in the Vercel dashboard → Project → Analytics → Enable, or it
+  reports nothing)
 
-**Once you have a real domain**, search `index.html`, `robots.txt`, and
-`sitemap.xml` for `[YOUR SITE URL` and replace every instance with the
-actual domain (e.g. `https://chefmannybayarea.com`) — everything above
-is wired up but inert until that placeholder is swapped in.
+**Known issue:** `chefmannybayarea.com` (no `www`) currently 404s and
+is served by Wix, not Vercel — only `www.chefmannybayarea.com` is
+correctly live. Add the bare domain in Vercel → Project → Settings →
+Domains so it redirects to the `www` version; otherwise anyone who
+types the domain without "www" hits a broken page.
 
 **What's intentionally not automated** — these are ongoing, manual,
 off-site tasks that no amount of code replaces:
-- **Google Business Profile**: create/verify one at
-  [business.google.com](https://business.google.com) — this is the
-  single highest-leverage thing for a local service business to show
-  up in Google Maps and local search results. Needs Manny's own Google
-  account and phone/mail verification.
-- **Google Search Console + Analytics**: connect the domain once it
-  exists, to track what's actually showing up in search and getting
-  clicked.
+- **Google Business Profile**: already set up — once the apex-domain
+  issue above is fixed, make sure the listed website URL there matches
+  the live site.
+- **Google Search Console**: verify `www.chefmannybayarea.com` and
+  submit `sitemap.xml`, to track what's actually showing up in search.
+- **Yelp**: already set up — same website-URL check as Google Business
+  Profile.
 - **Reviews**: monitoring and responding to Google/Yelp reviews is a
   recurring human task, not a website feature.
 
