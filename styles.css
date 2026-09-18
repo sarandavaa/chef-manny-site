@@ -160,7 +160,7 @@ h2.center { text-align: center; max-width: 40rem; margin-left: auto; margin-righ
   position: relative;
   /* height = nav-clearing buffer + the image's own aspect ratio (1214/1766) applied to full viewport width */
   height: calc(var(--hero-nav-offset) + 68.7429vw);
-  background: var(--color-surface); /* shows through the translucent nav's buffer strip — kept light so the nav doesn't look dark */
+  background: var(--color-text-soft); /* shows through the translucent nav's buffer strip — mid-grey, between too-dark and too-light */
   color: #fff;
   text-align: center;
 }
