@@ -87,6 +87,12 @@ h2.center { text-align: center; max-width: 40rem; margin-left: auto; margin-righ
   color: #fff;
 }
 .btn-primary:hover { background: var(--color-accent-hover); }
+.btn-secondary {
+  background: transparent;
+  color: var(--color-accent);
+  border: 1px solid var(--color-accent);
+}
+.btn-secondary:hover { background: rgba(243, 89, 3, 0.08); }
 
 /* =====================================================================
    HEADER / NAV
@@ -388,6 +394,7 @@ h2.center { text-align: center; max-width: 40rem; margin-left: auto; margin-righ
   gap: 1.25rem;
 }
 .contact-form button[type="submit"] { align-self: flex-start; }
+.contact-form.is-hidden { display: none; }
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -440,7 +447,46 @@ h2.center { text-align: center; max-width: 40rem; margin-left: auto; margin-righ
   color: var(--color-text-soft);
   min-height: 1.2em;
 }
-.form-status.is-error { color: var(--color-accent); }
+.form-status.is-error { color: var(--color-accent); font-weight: 600; }
+
+.form-success {
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.9rem;
+  background: var(--color-accent);
+  color: #fff;
+  border-radius: var(--radius-lg);
+  padding: 2.75rem;
+  box-shadow: 0 20px 45px rgba(243, 89, 3, 0.25);
+  animation: form-success-in 0.35s ease;
+}
+.form-success.is-hidden { display: none; }
+.form-success:focus { outline: none; }
+.form-success-icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form-success-icon svg { width: 1.5rem; height: 1.5rem; color: #fff; }
+.form-success h3 { color: #fff; margin-bottom: 0; }
+.form-success p { color: rgba(255, 255, 255, 0.9); max-width: 28rem; }
+.form-success .btn-secondary {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.6);
+  margin-top: 0.5rem;
+}
+.form-success .btn-secondary:hover { background: rgba(255, 255, 255, 0.12); }
+
+@keyframes form-success-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
 /* =====================================================================
    FOOTER
@@ -498,6 +544,7 @@ h2.center { text-align: center; max-width: 40rem; margin-left: auto; margin-righ
   .about-grid { grid-template-columns: 1fr; gap: 2rem; }
   .services-grid { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
+  .form-success { grid-column: 1; }
   .gallery-grid { grid-template-columns: repeat(2, 1fr); }
   .form-row { grid-template-columns: 1fr; }
 }
@@ -526,6 +573,7 @@ h2.center { text-align: center; max-width: 40rem; margin-left: auto; margin-righ
   .nav-cta { display: inline-block; margin: 1rem 0; }
   .section { padding: 4rem 1.25rem; }
   .contact-form-card { padding: 1.75rem; }
+  .form-success { padding: 2rem; }
 }
 
 @media (max-width: 480px) {

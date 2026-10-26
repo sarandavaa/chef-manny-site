@@ -80,6 +80,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---- Contact form (submits to Formspree — see the form's `action` in index.html) ----
   const contactForm = document.getElementById('contact-form');
   const formStatus = document.getElementById('form-status');
+  const formSuccess = document.getElementById('form-success');
+  const formSuccessReset = document.getElementById('form-success-reset');
 
   // Reveal a "please specify" field when its paired <select> is set to "Other".
   const wireOtherToggle = (selectId, wrapId, inputId) => {
@@ -122,11 +124,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         if (response.ok) {
-          formStatus.textContent = 'Thanks! Your message has been sent — Manny will be in touch soon.';
+          formStatus.textContent = '';
           contactForm.reset();
           document.querySelectorAll('.form-field.is-hidden').forEach((wrap) => {
             wrap.classList.add('is-hidden');
           });
+          if (formSuccess) {
+            contactForm.classList.add('is-hidden');
+            formSuccess.classList.remove('is-hidden');
+            formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            formSuccess.focus();
+          }
         } else {
           formStatus.textContent = 'Something went wrong sending your message. Please try again or email directly.';
           formStatus.classList.add('is-error');
@@ -137,6 +145,14 @@ document.addEventListener('DOMContentLoaded', () => {
       } finally {
         submitBtn.disabled = false;
       }
+    });
+  }
+
+  if (formSuccessReset && formSuccess && contactForm) {
+    formSuccessReset.addEventListener('click', () => {
+      formSuccess.classList.add('is-hidden');
+      contactForm.classList.remove('is-hidden');
+      contactForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
   }
 
