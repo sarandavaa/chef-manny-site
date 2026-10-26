@@ -97,7 +97,6 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   wireOtherToggle('service', 'service-other-wrap', 'service-other');
-  wireOtherToggle('occasion', 'occasion-other-wrap', 'occasion-other');
 
   if (contactForm && formStatus) {
     contactForm.addEventListener('submit', async (e) => {

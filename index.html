@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chef Manny | Private Chef in the San Francisco Bay Area</title>
+  <title>CHEF MANNY | Private Chef in the San Francisco Bay Area</title>
   <meta name="description"
     content="Chef Manny is a private chef and personal chef based in the San Francisco Bay Area, cooking seasonal food shaped by California, Puerto Rican, Cuban, and African American roots. Available for private dinners, events, and personalized menus.">
   <link rel="canonical" href="https://www.chefmannybayarea.com/">
@@ -78,7 +78,7 @@
   <header class="site-header">
     <div class="nav-inner">
       <a href="#top" class="brand">
-        <span>Chef Manny</span>
+        <span>CHEF MANNY</span>
       </a>
       <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -100,7 +100,7 @@
       <div class="hero-overlay"></div>
     </div>
     <div class="hero-content">
-      <h1>Chef Manny</h1>
+      <h1>CHEF MANNY</h1>
       <p class="hero-tagline">Private Chef serving the San Francisco Bay Area</p>
       <a href="#contact" class="btn btn-primary">Get in Touch</a>
     </div>
@@ -457,31 +457,13 @@
             <input type="date" id="event-date" name="Event Date" required>
           </div>
           <div class="form-field">
-            <label for="event-time">Event Time *</label>
-            <input type="time" id="event-time" name="Event Time" required>
+            <label for="guests">Number of Guests *</label>
+            <input type="number" id="guests" name="Number of Guests" min="1" required>
           </div>
         </div>
         <div class="form-field">
-          <label for="guests">Number of Guests *</label>
-          <input type="number" id="guests" name="Number of Guests" min="1" required>
-        </div>
-
-        <div class="form-field">
-          <label for="occasion">Occasion</label>
-          <select id="occasion" name="Occasion">
-            <option value="" disabled selected>Select an occasion (optional)</option>
-            <option>Birthday</option>
-            <option>Anniversary</option>
-            <option>Holiday</option>
-            <option>Corporate Event</option>
-            <option>Ongoing Meal Prep</option>
-            <option>Vacation Chef</option>
-            <option value="Other">Other</option>
-          </select>
-        </div>
-        <div class="form-field is-hidden" id="occasion-other-wrap">
-          <label for="occasion-other">Please specify</label>
-          <input type="text" id="occasion-other" name="Occasion (Other)">
+          <label for="location">Location *</label>
+          <input type="text" id="location" name="Location" placeholder="City, State" required>
         </div>
 
         <div class="form-field">
